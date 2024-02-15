@@ -1,0 +1,95 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.propiedades {
+    margin-top: 5rem;
+
+    &__heading {
+        font-weight: 400;
+        margin: 2rem 0;
+
+        span {
+            font-weight: 700;
+        }
+
+        &:after {
+            background-image: linear-gradient(90deg,v.$primario 0,v.$primario 50%,#6277a1 0,#6277a1);
+            content: "";
+            display: block;
+            height: 1rem;
+            margin-top: 1rem;
+            width: 15rem;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(1,1fr);
+
+        @include m.tablet { 
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(3,1fr);
+          }
+    }
+}
+
+.propiedad {
+    background-color: v.$blanco;
+
+
+    &__imagen {
+        aspect-ratio: 10/6;
+        background-size: auto 150%;
+        position: relative;
+    }
+
+    @for $i from 1 through 6 {
+        $imagen: '../img/propiedad_' + $i + '.jpg';
+        &:nth-child(#{$i}) &__imagen {
+            background-image: linear-gradient( to bottom, transparentize( v.$negro, 1% ) 0%, transparentize(v.$negro, .3% ) 100% ), url($imagen);
+        }
+    }
+
+    &__nombre {
+        bottom: 1rem;
+        color: v.$blanco;
+        font-size: 2.4rem;
+        left: 1rem;
+        position: absolute;
+    }
+
+    &__contenido {
+        padding: 2rem;
+    }
+
+    &__texto {
+        margin-bottom: 0;
+    }
+
+    &__precio {
+        font-size: 3rem;
+        margin: 0;
+    }
+
+    &__enlace {
+        background-color: v.$primario;
+        border: none;
+        color: v.$blanco;
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-top: 2rem;
+        padding: 1.5rem 4rem;
+        text-align: center;
+        text-transform: uppercase;
+        transition-duration: .3s;
+        transition-property: background-color;
+
+        &:hover {
+            background-color: #283142;
+        }
+    }
+}

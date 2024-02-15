@@ -1,0 +1,48 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.footer {
+    background-color: #3b4862;
+    margin-top: 5rem;
+    padding-top: 5rem;
+
+    &__grid {
+       @include m.tablet { 
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(3,1fr);
+         }
+    }
+    
+    
+
+    &__heading {
+        color: #fff;
+        font-size: 2rem;
+        text-transform: uppercase;
+    }
+
+    &__navegacion {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__link {
+        color: #fff;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    &__texto {
+        color: #fff;
+    }
+
+    &__copyright {
+        background-color: #283142;
+        color: #fff;
+        margin: 5rem 0 0;
+        padding: 1rem;
+        text-align: center;
+    }
+}
